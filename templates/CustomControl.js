@@ -67,10 +67,6 @@ sap.ui.define([
             /* lifecycle methods                                           */
             /* =========================================================== */
 
-            constructor: function() {
-                Control.prototype.constructor.apply( this, arguments );
-            },
-
             /** 
              * The init() method can be used to set up, for example, internal variables or subcontrols of a composite control.
              * If the init() method is implemented, SAPUI5 invokes the method for each control instance directly after the constructor method.
@@ -82,6 +78,16 @@ sap.ui.define([
             },
 
             /**
+             * Constructor for a new <code>ps.viz.Chart</code>.
+             *
+             * @param {string} [sId] Id for the new control, generated automatically if no id is given
+             * @param {object} [mSettings] Initial settings for the new control
+             */
+            constructor: function() {
+                Control.prototype.constructor.apply( this, arguments );
+            },
+
+            /**
              * Method called before control gets rendered
              * @private
              * @override
@@ -90,6 +96,12 @@ sap.ui.define([
                 Control.prototype.onBeforeRendering.apply( this, arguments );
             },
 
+            /**
+             * Renderer function of control <code>ps.viz.Chart</code>.
+             *
+             * @param {object} [oRm] Render Manager
+             * @param {object} [oControl] Current control (this)
+             */
             renderer: function(oRm, oControl) {
 
                 // start render wrapper div
