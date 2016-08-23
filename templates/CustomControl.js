@@ -52,15 +52,54 @@ sap.ui.define([
 
             metadata: {
                 library: "{lib}",
-                properties: {},
-                aggregations: {},
+                properties: {
+
+                    /**
+                     * Sets the text of my sample control.
+                     * @since: 1.0.0
+                     */
+                    sampleProperty: { type: "string", group: "Appearance", defaultValue: null },
+
+                },
+                aggregations: {
+
+                    /**
+                     * Optional <code>Button</code> displayed somewhere in my sample control.
+                     * @since: 1.0.0
+                     */
+                    sampleAggregation: { type: "sap.m.Button", multiple: false }
+
+                },
                 associations: {},
-                events: {}
+                events: {
+
+                    /**
+                     * Fires when my <code>sampleAggregation</code> button was pressed.
+                     */
+                    sampleEvent: {
+                        parameters: {
+
+                            /**
+                             * Some information relevant for the event receiver.
+                             */
+                            sampleParameter: { type: "string" }
+
+                        }
+                    }
+
+                }
             },
 
             /* =========================================================== */
             /* private attributes                                          */
             /* =========================================================== */
+
+            /**
+             * Reference to e.g. a control instance used in my sample control.
+             * @type {object}
+             * @since: 1.0.0
+             */
+            _privateAttribute: null,
 
 
             /* =========================================================== */
@@ -74,16 +113,18 @@ sap.ui.define([
              * @override
              */
             init: function() {
+                // only apply inherited init method if required, check if init method was implemented in the control you extended
                 Control.prototype.init.apply( this, arguments );
             },
 
             /**
-             * Constructor for a new <code>ps.viz.Chart</code>.
+             * Constructor for a new <code>{lib}.{control}</code>.
              *
              * @param {string} [sId] Id for the new control, generated automatically if no id is given
              * @param {object} [mSettings] Initial settings for the new control
              */
             constructor: function() {
+                // only apply inherited constructor method if required, check if constructor method was implemented in the control you extended
                 Control.prototype.constructor.apply( this, arguments );
             },
 
@@ -93,11 +134,12 @@ sap.ui.define([
              * @override
              */
             onBeforeRendering: function() {
+                // only apply inherited onBeforeRendering method if required, check if onBeforeRendering method was implemented in the control you extended
                 Control.prototype.onBeforeRendering.apply( this, arguments );
             },
 
             /**
-             * Renderer function of control <code>ps.viz.Chart</code>.
+             * Renderer function of control <code>{lib}.{control}</code>.
              *
              * @param {object} [oRm] Render Manager
              * @param {object} [oControl] Current control (this)
@@ -111,6 +153,9 @@ sap.ui.define([
                 oRm.writeClasses();
                 oRm.write(">");
 
+                // render e.g. controls handed set by an aggregation
+                oRm.renderControl(oControl.getAggregation("sampleAggregation"));
+
                 // end render wrapper div
                 oRm.write("</div>");
 
@@ -122,6 +167,7 @@ sap.ui.define([
              * @override
              */
             onAfterRendering: function() {
+                // only apply inherited onAfterRendering method if required, check if onAfterRendering method was implemented in the control you extended
                 Control.prototype.onAfterRendering.apply( this, arguments );
             },
 
@@ -154,15 +200,53 @@ sap.ui.define([
         /* public methods                                              */
         /* =========================================================== */
 
+        /**
+         * Description what <code>publicMethod</code> does.
+         *
+         * @param {string} [sParameter] Description of function parameter
+         * @return {{lib}.{control}} <code>this</code> to allow method chaining (return this if no other return parameter is reuired)
+         * @public
+         */
+        {control}.prototype.publicMethod = function(sParameter) {
+            // code of your public method
+            return this;
+        };
+
 
         /* =========================================================== */
         /* override methods                                            */
         /* =========================================================== */
 
+        /**
+         * Description of the overrided method.
+         *
+         * @param {string} [sParameter] Description of function parameter
+         * @return {{lib}.{control}} <code>this</code> to allow method chaining (return this if no other return parameter is required)
+         * @public
+         * @override
+         */
+        {control}.prototype.overrideExistingMethod = function(sParameter) {
+            // code of your override method
+            return this;
+        };
+
 
         /* =========================================================== */
         /* private methods                                             */
         /* =========================================================== */
+
+        /**
+         * Description what <code>_privateMethod</code> does.
+         *
+         * @param {string} [sParameter] Description of function parameter
+         * @return {{lib}.{control}} <code>this</code> to allow method chaining (return this if no other return parameter is required)
+         * @private
+         */
+        {control}.prototype._privateMethod = function(sParameter) {
+            // code of your public method
+            return this;
+        };
+
 
         return {control};
 
