@@ -1,7 +1,7 @@
 /**
- * 
+ *
  * Search and replace the following constants:
- * 
+ *
  * {year} e.g. 2016
  * {owner} e.g. MyCompany AG
  * {developer} e.g. Jascha Quintern
@@ -44,7 +44,7 @@ sap.ui.define([
          * @public
          * @alias {lib}.{control}
          */
-        var {control} = Control.extend("{lib}.{control}", {            
+        var {control} = Control.extend("{lib}.{control}", {
 
             /* =========================================================== */
             /* meta data definition                                        */
@@ -106,7 +106,7 @@ sap.ui.define([
             /* lifecycle methods                                           */
             /* =========================================================== */
 
-            /** 
+            /**
              * The init() method can be used to set up, for example, internal variables or subcontrols of a composite control.
              * If the init() method is implemented, SAPUI5 invokes the method for each control instance directly after the constructor method.
              * @private
@@ -114,7 +114,7 @@ sap.ui.define([
              */
             init: function() {
                 // only apply inherited init method if required, check if init method was implemented in the control you extended
-                Control.prototype.init.apply( this, arguments );
+                // Control.prototype.init.apply( this, arguments );
             },
 
             /**
@@ -135,7 +135,7 @@ sap.ui.define([
              */
             onBeforeRendering: function() {
                 // only apply inherited onBeforeRendering method if required, check if onBeforeRendering method was implemented in the control you extended
-                Control.prototype.onBeforeRendering.apply( this, arguments );
+                // Control.prototype.onBeforeRendering.apply( this, arguments );
             },
 
             /**
@@ -168,17 +168,17 @@ sap.ui.define([
              */
             onAfterRendering: function() {
                 // only apply inherited onAfterRendering method if required, check if onAfterRendering method was implemented in the control you extended
-                Control.prototype.onAfterRendering.apply( this, arguments );
+                // Control.prototype.onAfterRendering.apply( this, arguments );
             },
 
-            /** 
+            /**
              * The exit() method is used to clean up resources and to deregister event handlers.
              * If the exit() method is implemented, SAPUI5 core invokes the method for each control instance when it is destroyed.
              * @private
              * @override
              */
             exit: function() {
-                Control.prototype.exit.apply( this, arguments );
+                // Control.prototype.exit.apply( this, arguments );
             }
 
         });
