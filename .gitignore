@@ -1,0 +1,13 @@
+### OSX ###
+*.DS_Store
+
+### IDE ###
+.imdone/
+
+### Node ###
+node_modules/
+*.log
+
+## MISC ##
+/.idea/
+TODO.md
