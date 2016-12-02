@@ -4,6 +4,9 @@
 ### IDE ###
 .imdone/
 
+### Build Process ###
+dev/
+
 ### Node ###
 node_modules/
 *.log

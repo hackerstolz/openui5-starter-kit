@@ -1,0 +1,21 @@
+[ignore]
+# // just in case a node module is causing issues:
+# // .*/node_modules/moduleWithIssue/.*
+
+[include]
+
+[libs]
+
+[options]
+
+# // enable ES6/ES7 class definitions
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+
+# // The way to ignore single lines is by using the supress_comment. Let’s define two ignore patterns:
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
+
+# // Anywhere in our code where we want Flow to ignore a line we can place a comment on the proceeding line. E.g.:
+# // $FlowFixMe: We aren't yet ready to refactor this line...
+# function manyUntypedArgs(a, b, x, y) { /* ... */ }
