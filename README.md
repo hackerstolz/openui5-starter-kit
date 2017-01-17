@@ -22,4 +22,5 @@ $ yarn
 $ gulp
 ```
 3. Execute the application in your browser `http://localhost:8080/dev/index.html?sap-ui-debug=true`
+
 TODO: Add a step to start a web server first.
