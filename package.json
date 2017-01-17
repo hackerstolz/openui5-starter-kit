@@ -4,7 +4,7 @@
   "description": "An OpenUI5 app build with webpack.",
   "main": "index.js",
   "scripts": {
-    "start": "sh -c 'cd scripts/ && gulp'"
+    "start": "gulp"
   },
   "repository": {
     "type": "git",

@@ -12,6 +12,10 @@ const rename = require('gulp-rename');
 const babel = require('gulp-babel');
 const cache = require('gulp-cached');
 
+const SRC_ROOT = './src/redux-ui5-app';
+const DEV_ROOT = './dev/redux-ui5-app';
+const DIST_ROOT = './dist/redux-ui5-app';
+
 
 /* =========================================================== */
 /* gulp main task                                              */
@@ -42,15 +46,15 @@ gulp.task('update', cb => {
 // watch Files For Changes
 gulp.task('watch', () => {
     gulp.watch([
-        './app/**/*.js'
+        `${SRC_ROOT}/**/*.js`
     ], ['js']);
     gulp.watch([
-        './app/**/*.less'
+        `${SRC_ROOT}/**/*.les`
     ], ['less']);
     gulp.watch([
-        './app/**/*',
-        '!./app/**/*.less',
-        '!./app/**/*.js'
+        `${SRC_ROOT}/**/*`,
+        `!${SRC_ROOT}/**/*.less`,
+        `!${SRC_ROOT}/**/*.js`
     ], ['assets']);
 });
 
@@ -61,7 +65,7 @@ gulp.task('watch', () => {
 
 // clean dev directory
 gulp.task('clean', cb => {
-    del('./dev').then(() => {
+    del(DEV_ROOT).then(() => {
         cb();
     }, reason => {
         cb(reason);
@@ -78,7 +82,7 @@ gulp.task('less', () => {
     var autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
 
     return gulp.src([
-              './app/**/*.less'
+              `${SRC_ROOT}/**/*.less`
           ])
           .pipe(cache('less'))
           .pipe(less({
@@ -86,7 +90,7 @@ gulp.task('less', () => {
               plugins: [autoprefix]
           }))
           .pipe(cssmin())
-          .pipe(gulp.dest('./dev'));
+          .pipe(gulp.dest(DEV_ROOT));
 });
 
 
@@ -96,21 +100,21 @@ gulp.task('less', () => {
 
 gulp.task('js', ['babel', 'babel-dbg'], () => {});
 
-// lint task to compile babel es2015 to es2016 and save them as '*-dbg.js' resources
+// lint task to compile babel es2016 to es2015 and save them minified
 gulp.task('babel', () => {
     return  gulp.src([
-                './app/**/*.js'
+                `${SRC_ROOT}/**/*.js`
             ])
             .pipe(cache('babel'))
             .pipe(babel())
             .pipe(uglify())
-            .pipe(gulp.dest('./dev'));
+            .pipe(gulp.dest(DEV_ROOT));
 });
 
-// lint task to compile babel es2015 to es2016 and save them as '*-dbg.js' resources
+// lint task to compile babel es2016 to es2015 and save them as '*-dbg.js' resources
 gulp.task('babel-dbg', () => {
     return  gulp.src([
-                './app/**/*.js'
+                `${SRC_ROOT}/**/*.js`
             ])
             .pipe(cache('babel-dbg'))
             .pipe(babel())
@@ -118,7 +122,7 @@ gulp.task('babel-dbg', () => {
             .pipe(gulpif('**/*.controller.js', rename(path => {
                 path.basename = `${path.basename.split('.')[0]}-dbg.${path.basename.split('.')[1]}`;
             })))
-            .pipe(gulp.dest('./dev'));
+            .pipe(gulp.dest(DEV_ROOT));
 });
 
 
@@ -130,10 +134,10 @@ gulp.task('babel-dbg', () => {
 gulp.task('assets', () => {
     // copy source files into destination folder
     return gulp.src([
-            './app/**/*',
-            '!./app/**/*.less',
-            '!./app/**/*.js'
-        ], { base: './app' })
+            `${SRC_ROOT}/**/*`,
+            `!${SRC_ROOT}/**/*.less`,
+            `!${SRC_ROOT}/**/*.js`
+        ], { base: SRC_ROOT })
         .pipe(cache('assets'))
-        .pipe(gulp.dest('./dev'));
+        .pipe(gulp.dest(DEV_ROOT));
 });

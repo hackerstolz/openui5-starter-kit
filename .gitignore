@@ -5,7 +5,8 @@
 .imdone/
 
 ### Build Process ###
-dev/
+/dev/
+/dist/
 
 ### Node ###
 node_modules/

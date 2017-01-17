@@ -7,24 +7,33 @@
 
     <title>fiori-test</title>
 
+    <!-- TODO: REPLACE SCRIPTS – UNFORTUNATELY THESE SCRIPTS ARE REQUIRED -->
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+
     <script id="sap-ui-bootstrap"
       src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
       data-sap-ui-libs="sap.m"
       data-sap-ui-theme="sap_bluecrystal"
       data-sap-ui-compatVersion="edge"
       data-sap-ui-preload="async"
-      data-sap-ui-resourceroots='{"ps": ""}'>
+      data-sap-ui-resourceroots='{ "ps": "" }'>
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
 
     <script>
       sap.ui.getCore().attachInit(function() {
         new sap.m.Shell({
+          backgroundColor: '',
+          backgroundImage: '',
+          backgroundRepeat: false,
+          backgroundOpacity: 1,
+          appWidthLimited: true,
           app: new sap.ui.core.ComponentContainer({
-            height : "100%",
-            name : "ps"
+            height: '100%',
+            width: '100%',
+            name: 'ps'
           })
-        }).placeAt("content");
+        }).placeAt('content');
       });
     </script>
   </head>
