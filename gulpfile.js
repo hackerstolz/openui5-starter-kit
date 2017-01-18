@@ -49,7 +49,7 @@ gulp.task('watch', () => {
         `${SRC_ROOT}/**/*.js`
     ], ['js']);
     gulp.watch([
-        `${SRC_ROOT}/**/*.les`
+        `${SRC_ROOT}/**/*.less`
     ], ['less']);
     gulp.watch([
         `${SRC_ROOT}/**/*`,

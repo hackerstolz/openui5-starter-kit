@@ -1,16 +1,14 @@
 /* @flow */
 
 sap.ui.define([
+  'ps/reducers/routing',
   'ps/reducers/main'
+], function(routing, main) {
 
-  // load plug ins
-  // 'ps/libs/redux' // exports Redux
-], function(main) {
-
-  const { combineReducers } = Redux;
+  const { combineReducers } = window.Redux;
 
   return combineReducers({
-    // routing,
+    routing,
     main
   });
 

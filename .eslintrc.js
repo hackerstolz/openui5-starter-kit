@@ -34,6 +34,8 @@ module.exports = {
 
     // define globals (sap is at the time only relevant for OpenUI5 apps)
     'globals': {
+        '$': false,
+        'jQuery': false,
         'sap': false
     },
 
