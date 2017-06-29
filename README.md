@@ -1,21 +1,21 @@
-# deprecated
+# Deprecated
 *Attention, this project is deprecated.* The new [OpenUI5 Starter Kit](https://github.com/pulseshift/openui5-gulp-starter-kit) is available [here](https://github.com/pulseshift/openui5-gulp-starter-kit).
 
-# openui5-starter-kit
+## openui5-starter-kit
 
-## About
+### About
 This project contains a bunch of template files and boilerplaites to get help you with starting OpenUI5 development. This peoject will be extended from time to time by best practice `Projects`, `Components` or other OpenUI5 elements.
 
-## Content
+### Content
 Short description of contained templates and how to use them.
 
-### /templates
+#### /templates
 In the `/templates` folder you find simple single file templates for e.g. UI5 *Controller* or *CustomControls*. All of them are based on code and comment best practices.
 
-### /src/redux-ui5-app
+#### /src/redux-ui5-app
 A complete UI5 app example with best practice folder structure and build infrastructure. In this case, the app represents a boilerplate to combine OpenUI5 with Redux.
 
-#### How to setup?
+##### How to setup?
 1. Install required JavaScript modules. Execute from the root directory of this project:
 ```
 $ yarn
