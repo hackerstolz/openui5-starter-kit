@@ -1,3 +1,6 @@
+# deprecated
+*Attention, this project is deprecated.* The new [OpenUI5 Starter Kit](https://github.com/pulseshift/openui5-gulp-starter-kit) is available [here](https://github.com/pulseshift/openui5-gulp-starter-kit).
+
 # openui5-starter-kit
 
 ## About
